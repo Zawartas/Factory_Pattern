@@ -1,18 +1,13 @@
 package sample;
 
-public abstract class Zombie {
-    private final String name;
+public class Zombie extends Monster {
 
     public Zombie(String name) {
-        this.name = name;
-    }
-
-    public String methodToBeOverwritten() {
-        return "Zombie ";
+        super(name);
     }
 
     @Override
-    public String toString() {
-        return describe() + name;
+    public String methodToBeOverwritten() {
+        return super.methodToBeOverwritten() + "Zombie ";
     }
 }
