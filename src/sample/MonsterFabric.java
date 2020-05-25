@@ -30,12 +30,6 @@ public class MonsterFabric {
         return mapOfMonstersToMake.get(type).make(name);
     }
 
-    public static Monster make(String type) {
-        if (type.equals("Zombie"))
-            return new Zombie("Aaa");
-        return null;
-    }
-
     public static String[] keys() {
         String[] srt = new String[mapOfMonstersToMake.size()];
         mapOfMonstersToMake.keySet().toArray(srt);

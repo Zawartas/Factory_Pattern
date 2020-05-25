@@ -3,15 +3,18 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class Controller {
 
     @FXML
     private ComboBox cbWithInstantiatedObj;
     @FXML
-    private ComboBox cbWithTypes;
+    private ComboBox<String> cbWithTypes;
     @FXML
     private TextArea ta;
+    @FXML
+    private TextField tf;
 
     @FXML
     public void initialize() {
@@ -27,11 +30,13 @@ public class Controller {
         cbWithInstantiatedObj.getSelectionModel().select(1);
     }
 
-    Zombie zb = (Zombie) MonsterFabric.make("Zombie");
-    Monster mz = MonsterFabric.make("Zombie");
+//    Zombie zb = (Zombie) MonsterFabric.make("Zombie");
+//    Monster mz = MonsterFabric.make("Zombie");
 
     @FXML
     public void btnClicked() {
-        cbWithInstantiatedObj.getSelectionModel().getSelectedItem();
+        String type = cbWithTypes.getSelectionModel().getSelectedItem();
+        String name = tf.getText();
+        MonsterFabric.make(type, name, ta);
     }
 }
